@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johncint F Bagonoc — Portfolio</title>
+  <meta name="description" content="First-year CS student building things in Java, C++, and the web.">
+  <meta name="theme-color" content="#0b0d12">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  <meta property="og:title" content="Johncint F Bagonoc — Portfolio">
+  <meta property="og:description" content="First-year CS student building things in Java, C++, and the web.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-logo">
+        <span class="intro-letter">J</span><span class="intro-letter">o</span><span class="intro-letter">h</span><span class="intro-letter">n</span><span class="intro-letter">c</span><span class="intro-letter">i</span><span class="intro-letter">n</span><span class="intro-letter">t</span>
+        <span class="intro-letter accent">F</span>
+        <span class="intro-letter accent">B</span><span class="intro-letter accent">a</span><span class="intro-letter accent">g</span><span class="intro-letter accent">o</span><span class="intro-letter accent">n</span><span class="intro-letter accent">o</span><span class="intro-letter accent">c</span>
+      </div>
+      <div class="intro-line"></div>
+      <p class="intro-tagline">First-year CS student</p>
+    </div>
+    <div class="intro-progress"><span></span></div>
+  </div>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="scroll-progress"></div>
+
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">Johncint<span>.dev</span></a>
+
+      <div class="nav-widgets">
+        <button class="nav-copy" data-email="johncintfbagonoc@gmail.com" aria-label="Copy email address">
+          Copy email
+        </button>
+        <div class="nav-clock" aria-live="polite">
+          <span class="clock-time" id="clock-time">--:--:--</span>
+          <span class="clock-date" id="clock-date">Loading…</span>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <span class="nav-indicator" aria-hidden="true"></span>
+        </ul>
+        <a href="assets/resume.pdf" class="btn btn-sm" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-content">
+
+          <p class="hero-status"><span class="dot"></span> Open to internships · 2026</p>
+
+          <p class="hero-eyebrow">First-Year Computer Science Student</p>
+
+          <h1 class="hero-title">
+            <span class="hero-greeting">Hi, I'm</span>
+            <span class="hero-typed" aria-label="Johncint F Bagonoc">
+              <span id="typed-name"></span><span class="caret" aria-hidden="true"></span>
+            </span>
+          </h1>
+
+          <p class="hero-pitch">
+            I build things in Java, C++, and on the web. Currently learning how
+            software works under the hood and shipping small projects along the way.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+          </div>
+
+          <ul class="hero-stats">
+            <li><strong>6+</strong><span>Projects</span></li>
+            <li><strong>5</strong><span>Languages</span></li>
+            <li><strong>1st</strong><span>Year CS</span></li>
+          </ul>
+
+          <ul class="hero-socials">
+            <li><a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://linkedin.com/in/you" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:johncintfbagonoc@gmail.com">Email</a></li>
+          </ul>
+
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-image-frame">
+            <img src="/Assest/Profile.jpg" alt="Portrait of Johncint F Bagonoc" loading="eager">
+            <span class="float-badge b1">Java</span>
+            <span class="float-badge b2">C++</span>
+            <span class="float-badge b3">JS</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#projects" class="scroll-hint" aria-label="Scroll to projects">
+        <span></span>
+      </a>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="section-head" data-animate="fade-up">
+        <h2>Projects</h2>
+        <p class="section-sub">A few things I've built and what I learned from them.</p>
+      </div>
+
+      <div class="project-filters" data-animate="fade-up">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="java">Java</button>
+        <button class="filter-btn" data-filter="cpp">C++</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        <button class="filter-btn" data-filter="python">Python</button>
+      </div>
+
+      <div class="project-grid" id="project-grid">
+
+        <article class="project-card featured" data-animate="fade-up" data-tech="java" style="--i: 0">
+          <div class="project-thumb">
+            <img src="assets/project-one.png" alt="Screenshot of Project One" loading="lazy">
+            <span class="project-number">01</span>
+            <span class="project-badge">Featured</span>
+            <span class="project-status live">Live</span>
+            <div class="project-overlay">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-year">2025</span>
+            <h3><a href="https://github.com/Johncint" target="_blank" rel="noopener">Project One</a></h3>
+            <p>Short description of what it does and what you learned while building it.</p>
+            <p class="project-learned">Learned: object-oriented design, clean separation of concerns.</p>
+            <ul class="tags">
+              <li>Java</li>
+              <li>OOP</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" data-tech="cpp" style="--i: 1">
+          <div class="project-thumb">
+            <img src="assets/project-two.png" alt="Screenshot of Project Two" loading="lazy">
+            <span class="project-number">02</span>
+            <span class="project-status progress">In progress</span>
+            <div class="project-overlay">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-year">2025</span>
+            <h3><a href="https://github.com/Johncint" target="_blank" rel="noopener">Project Two</a></h3>
+            <p>Short description of what it does and what you learned while building it.</p>
+            <p class="project-learned">Learned: algorithm complexity, memory management.</p>
+            <ul class="tags">
+              <li>C++</li>
+              <li>Algorithms</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" data-tech="javascript" style="--i: 2">
+          <div class="project-thumb">
+            <img src="assets/project-three.png" alt="Screenshot of Project Three" loading="lazy">
+            <span class="project-number">03</span>
+            <span class="project-status live">Live</span>
+            <div class="project-overlay">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-year">2025</span>
+            <h3><a href="https://github.com/Johncint" target="_blank" rel="noopener">Project Three</a></h3>
+            <p>Short description of what it does and what you learned while building it.</p>
+            <p class="project-learned">Learned: DOM manipulation, responsive design.</p>
+            <ul class="tags">
+              <li>JavaScript</li>
+              <li>HTML/CSS</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" data-tech="python" style="--i: 3">
+          <div class="project-thumb">
+            <img src="assets/project-four.png" alt="Screenshot of Project Four" loading="lazy">
+            <span class="project-number">04</span>
+            <span class="project-status archived">Archived</span>
+            <div class="project-overlay">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-year">2025</span>
+            <h3><a href="https://github.com/Johncint" target="_blank" rel="noopener">Project Four</a></h3>
+            <p>Short description of what it does and what you learned while building it.</p>
+            <p class="project-learned">Learned: working with data, reading docs carefully.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>Data</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" data-tech="javascript" style="--i: 4">
+          <div class="project-thumb">
+            <img src="assets/project-five.png" alt="Screenshot of Project Five" loading="lazy">
+            <span class="project-number">05</span>
+            <span class="project-status live">Live</span>
+            <div class="project-overlay">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-year">2024</span>
+            <h3><a href="https://github.com/Johncint" target="_blank" rel="noopener">Project Five</a></h3>
+            <p>Short description of what it does and what you learned while building it.</p>
+            <p class="project-learned">Learned: fetching APIs, handling async data.</p>
+            <ul class="tags">
+              <li>JavaScript</li>
+              <li>API</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-animate="fade-up" data-tech="java" style="--i: 5">
+          <div class="project-thumb">
+            <img src="assets/project-six.png" alt="Screenshot of Project Six" loading="lazy">
+            <span class="project-number">06</span>
+            <span class="project-status archived">Archived</span>
+            <div class="project-overlay">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-year">2024</span>
+            <h3><a href="https://github.com/Johncint" target="_blank" rel="noopener">Project Six</a></h3>
+            <p>Short description of what it does and what you learned while building it.</p>
+            <p class="project-learned">Learned: argument parsing, CLI design.</p>
+            <ul class="tags">
+              <li>Java</li>
+              <li>CLI</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">Live Demo</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="project-empty" id="project-empty" hidden>No projects match that filter yet.</p>
+    </section>
+
+    <section id="certificates" class="certificates">
+      <div class="section-head" data-animate="fade-up">
+        <h2>Certificates <span class="section-count">6</span></h2>
+        <p class="section-sub">Courses and credentials I've completed.</p>
+      </div>
+      <div class="cert-grid">
+
+        <article class="cert-card" data-animate="fade-up" style="--i: 0">
+          <span class="cert-ribbon">2025</span>
+          <div class="cert-icon">
+            <img src="assets/issuer-google.png" alt="" loading="lazy" onerror="this.remove()">
+            <span aria-hidden="true">🏅</span>
+          </div>
+          <div class="cert-body">
+            <h3>Certificate Name</h3>
+            <p class="cert-issuer">Google</p>
+            <p class="cert-id">CRED-9X4K-2025</p>
+            <p>Short line on what it covered and why it mattered.</p>
+            <a href="#" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+          </div>
+        </article>
+
+        <article class="cert-card" data-animate="fade-up" style="--i: 1">
+          <span class="cert-ribbon">2025</span>
+          <div class="cert-icon">
+            <img src="assets/issuer-coursera.png" alt="" loading="lazy" onerror="this.remove()">
+            <span aria-hidden="true">🎓</span>
+          </div>
+          <div class="cert-body">
+            <h3>Certificate Name</h3>
+            <p class="cert-issuer">Coursera</p>
+            <p class="cert-id">CRED-7M2P-2025</p>
+            <p>Short line on what it covered and why it mattered.</p>
+            <a href="#" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+          </div>
+        </article>
+
+        <article class="cert-card" data-animate="fade-up" style="--i: 2">
+          <span class="cert-ribbon">2025</span>
+          <div class="cert-icon">
+            <img src="assets/issuer-freecodecamp.png" alt="" loading="lazy" onerror="this.remove()">
+            <span aria-hidden="true">🔥</span>
+          </div>
+          <div class="cert-body">
+            <h3>Certificate Name</h3>
+            <p class="cert-issuer">freeCodeCamp</p>
+            <p class="cert-id">CRED-3T8N-2025</p>
+            <p>Short line on what it covered and why it mattered.</p>
+            <a href="#" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+          </div>
+        </article>
+
+        <article class="cert-card" data-animate="fade-up" style="--i: 3">
+          <span class="cert-ribbon">2024</span>
+          <div class="cert-icon">
+            <img src="assets/issuer-udemy.png" alt="" loading="lazy" onerror="this.remove()">
+            <span aria-hidden="true">📜</span>
+          </div>
+          <div class="cert-body">
+            <h3>Certificate Name</h3>
+            <p class="cert-issuer">Udemy</p>
+            <p class="cert-id">CRED-5B9Q-2024</p>
+            <p>Short line on what it covered and why it mattered.</p>
+            <a href="#" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+          </div>
+        </article>
+
+        <article class="cert-card" data-animate="fade-up" style="--i: 4">
+          <span class="cert-ribbon">2024</span>
+          <div class="cert-icon">
+            <img src="assets/issuer-microsoft.png" alt="" loading="lazy" onerror="this.remove()">
+            <span aria-hidden="true">🏆</span>
+          </div>
+          <div class="cert-body">
+            <h3>Certificate Name</h3>
+            <p class="cert-issuer">Microsoft</p>
+            <p class="cert-id">CRED-1C6R-2024</p>
+            <p>Short line on what it covered and why it mattered.</p>
+            <a href="#" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+          </div>
+        </article>
+
+        <article class="cert-card" data-animate="fade-up" style="--i: 5">
+          <span class="cert-ribbon">2024</span>
+          <div class="cert-icon">
+            <img src="assets/issuer-meta.png" alt="" loading="lazy" onerror="this.remove()">
+            <span aria-hidden="true">💡</span>
+          </div>
+          <div class="cert-body">
+            <h3>Certificate Name</h3>
+            <p class="cert-issuer">Meta</p>
+            <p class="cert-id">CRED-8W4H-2024</p>
+            <p>Short line on what it covered and why it mattered.</p>
+            <a href="#" target="_blank" rel="noopener" class="cert-verify">Verify →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="section-head" data-animate="fade-up">
+        <h2>About Me</h2>
+        <p class="section-sub">A little about who I am and what I'm working toward.</p>
+      </div>
+      <div class="about-grid">
+
+        <div class="about-main" data-animate="fade-right">
+          <div class="about-tabs" role="tablist">
+            <button class="about-tab active" data-tab="story" role="tab" aria-selected="true">Story</button>
+            <button class="about-tab" data-tab="journey" role="tab" aria-selected="false">Journey</button>
+            <button class="about-tab" data-tab="beyond" role="tab" aria-selected="false">Beyond Code</button>
+          </div>
+
+          <div class="about-panel active" data-panel="story" role="tabpanel">
+            <p>
+              I'm a first-year computer science student. I enjoy building things and
+              learning how software works under the hood. Right now I'm exploring
+              Java, C++, and web development, and I ship small projects to practice.
+            </p>
+            <p>
+              Outside of class I'm usually reading docs, breaking things, and fixing
+              them again — which is honestly the best way to learn.
+            </p>
+            <p>
+              My goal is to keep growing as a developer, contribute to real projects,
+              and land an internship where I can learn from people better than me.
+            </p>
+            <ul class="about-facts">
+              <li><strong>Focus</strong><span>Web &amp; software fundamentals</span></li>
+              <li><strong>Currently</strong><span>Learning JavaScript deeply</span></li>
+              <li><strong>Open to</strong><span>Internships &amp; collabs</span></li>
+            </ul>
+          </div>
+
+          <div class="about-panel" data-panel="journey" role="tabpanel">
+            <ol class="about-timeline">
+              <li>
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                  <span class="timeline-year">2022</span>
+                  <h4>First line of code</h4>
+                  <p>Wrote my first Python script in school — a guess-the-number game. Hooked instantly.</p>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                  <span class="timeline-year">2023</span>
+                  <h4>Started learning Java &amp; C++</h4>
+                  <p>Self-taught from docs and tutorials. Built small CLI tools to practice logic and data structures.</p>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                  <span class="timeline-year">2024</span>
+                  <h4>First web projects</h4>
+                  <p>Learned HTML, CSS, and JavaScript. Shipped a few pages — started thinking about the web seriously.</p>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                  <span class="timeline-year">2025</span>
+                  <h4>Started CS degree</h4>
+                  <p>Enrolled in university. Now balancing coursework, self-study, and building this portfolio.</p>
+                </div>
+              </li>
+              <li>
+                <span class="timeline-dot"></span>
+                <div class="timeline-content">
+                  <span class="timeline-year">Now</span>
+                  <h4>Looking for internships</h4>
+                  <p>Shipping projects weekly and learning JavaScript deeply. Open to any team that lets me grow.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="about-panel" data-panel="beyond" role="tabpanel">
+            <ul class="about-beyond">
+              <li><span>🎮</span> Playing indie games and studying their design</li>
+              <li><span>📚</span> Reading tech books — currently <em>The Pragmatic Programmer</em></li>
+              <li><span>🎧</span> Lo-fi and synthwave while coding</li>
+              <li><span>⚡</span> Weekend hackathons &amp; side experiments</li>
+              <li><span>🧠</span> Obsessed with understanding how things work under the hood</li>
+            </ul>
+            <div class="about-currently">
+              <h4>Currently</h4>
+              <ul>
+                <li><strong>Learning</strong><span>JavaScript deeply, then React</span></li>
+                <li><strong>Reading</strong><span>The Pragmatic Programmer</span></li>
+                <li><strong>Building</strong><span>This portfolio + 2 side projects</span></li>
+                <li><strong>Open to</strong><span>Internships &amp; collabs</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-side">
+          <div class="about-skills" data-animate="fade-left" style="--i: 0">
+            <h3>Languages</h3>
+            <ul class="skills">
+              <li>Java</li>
+              <li>C++</li>
+              <li>Python (basics)</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+          <div class="about-skills" data-animate="fade-left" style="--i: 1">
+            <h3>Web &amp; Tools</h3>
+            <ul class="skills">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Git &amp; GitHub</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+          <a href="assets/resume.pdf" class="about-cta" target="_blank" rel="noopener" data-animate="fade-left" style="--i: 2">
+            Download Resume →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="section-head" data-animate="fade-up">
+        <h2>Contact</h2>
+        <p class="section-sub">Have a project, opportunity, or just want to say hi? I'd love to hear from you.</p>
+      </div>
+
+      <div class="contact-grid" data-animate="fade-up">
+
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+        >
+          <div class="form-row">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+          </div>
+          <button type="submit" class="btn contact-submit">Send message</button>
+          <p class="form-note">Usually replies within 24 hours.</p>
+        </form>
+
+        <aside class="contact-side">
+          <div class="contact-side-block">
+            <h3>Or reach me directly</h3>
+            <button class="contact-copy" data-email="johncintfbagonoc@gmail.com">
+              <span class="contact-copy-label">Copy email</span>
+              <span class="contact-copy-email">johncintfbagonoc@gmail.com</span>
+            </button>
+          </div>
+
+          <div class="contact-side-block">
+            <h3>Find me online</h3>
+            <ul class="contact-socials">
+              <li>
+                <a href="https://github.com/Johncint" target="_blank" rel="noopener">
+                  <span class="social-icon" aria-hidden="true">⌥</span>
+                  <span>GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/you" target="_blank" rel="noopener">
+                  <span class="social-icon" aria-hidden="true">in</span>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:johncintfbagonoc@gmail.com">
+                  <span class="social-icon" aria-hidden="true">✉</span>
+                  <span>Email</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <a href="#" class="logo">Johncint<span>.dev</span></a>
+        <p>First-year CS student building things in Java, C++, and on the web.</p>
+        <p class="footer-status"><span class="dot"></span> Available for work</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul class="footer-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Elsewhere</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com/Johncint" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com/in/you" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="mailto:johncintfbagonoc@gmail.com">Email</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <ul class="footer-links">
+          <li><a href="mailto:johncintfbagonoc@gmail.com">johncintfbagonoc@gmail.com</a></li>
+          <li><a href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a></li>
+          <li><a href="#" class="back-to-top">Back to top ↑</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> Johncint F Bagonoc. Built with HTML, CSS, and JavaScript.</p>
+      <p class="footer-mono">// last updated <span id="last-updated">—</span></p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
