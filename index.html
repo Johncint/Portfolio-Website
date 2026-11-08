@@ -1,58 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johncint F Bagonoc — Portfolio</title>
+  <title>Johncint Bagonoc — Portfolio</title>
   <meta name="description" content="First-year CS student building things in Java, C++, and the web.">
   <meta name="theme-color" content="#0b0d12">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
-  <meta property="og:title" content="Johncint F Bagonoc — Portfolio">
-  <meta property="og:description" content="First-year CS student building things in Java, C++, and the web.">
-  <meta property="og:type" content="website">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
   <div class="intro" id="intro" aria-hidden="true">
-    <div class="intro-inner">
-      <div class="intro-logo">
-        <span class="intro-letter">J</span><span class="intro-letter">o</span><span class="intro-letter">h</span><span class="intro-letter">n</span><span class="intro-letter">c</span><span class="intro-letter">i</span><span class="intro-letter">n</span><span class="intro-letter">t</span>
-        <span class="intro-letter accent">F</span>
-        <span class="intro-letter accent">B</span><span class="intro-letter accent">a</span><span class="intro-letter accent">g</span><span class="intro-letter accent">o</span><span class="intro-letter accent">n</span><span class="intro-letter accent">o</span><span class="intro-letter accent">c</span>
-      </div>
-      <div class="intro-line"></div>
+    <div class="intro-grid-bg"></div>
+    <div class="intro-content">
+      <div class="intro-badge">PORTFOLIO 2026</div>
+      <h1 class="intro-title">
+        <span class="intro-word">
+          <span class="intro-letter">J</span><span class="intro-letter">o</span><span class="intro-letter">h</span><span class="intro-letter">n</span><span class="intro-letter">c</span><span class="intro-letter">i</span><span class="intro-letter">n</span><span class="intro-letter">t</span>
+        </span>
+        <span class="intro-word">
+          <span class="intro-letter accent">B</span><span class="intro-letter accent">a</span><span class="intro-letter accent">g</span><span class="intro-letter accent">o</span><span class="intro-letter accent">n</span><span class="intro-letter accent">o</span><span class="intro-letter accent">c</span>
+        </span>
+      </h1>
+      <div class="intro-divider"></div>
       <p class="intro-tagline">First-year CS student</p>
     </div>
-    <div class="intro-progress"><span></span></div>
+    <div class="intro-progress-bar"><span></span></div>
   </div>
 
   <a href="#main" class="skip-link">Skip to content</a>
-
   <div class="scroll-progress"></div>
 
   <header class="navbar">
     <div class="nav-inner">
       <a href="#" class="logo">Johncint<span>.dev</span></a>
 
-      <div class="nav-widgets">
-        <button class="nav-copy" data-email="johncintfbagonoc@gmail.com" aria-label="Copy email address">
-          Copy email
-        </button>
-        <div class="nav-clock" aria-live="polite">
-          <span class="clock-time" id="clock-time">--:--:--</span>
-          <span class="clock-date" id="clock-date">Loading…</span>
-        </div>
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
+      <!-- Navigation Links -->
       <nav class="nav-menu">
         <ul class="nav-links">
           <li><a href="#projects">Projects</a></li>
@@ -61,8 +53,29 @@
           <li><a href="#contact">Contact</a></li>
           <span class="nav-indicator" aria-hidden="true"></span>
         </ul>
-        <a href="assets/resume.pdf" class="btn btn-sm" target="_blank" rel="noopener">Resume</a>
       </nav>
+
+      <!-- Right Side: Search + Buttons -->
+      <div class="nav-widgets">
+        <button class="cmd-trigger" id="cmd-trigger" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span class="cmd-text">Search...</span>
+          <kbd class="cmd-kbd">⌘K</kbd>
+        </button>
+
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark and light theme">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        
+        <a href="assets/resume.pdf" class="btn btn-sm hide-mobile" target="_blank" rel="noopener">Resume</a>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -73,12 +86,11 @@
         <div class="hero-content">
 
           <p class="hero-status"><span class="dot"></span> Open to internships · 2026</p>
-
           <p class="hero-eyebrow">First-Year Computer Science Student</p>
 
           <h1 class="hero-title">
             <span class="hero-greeting">Hi, I'm</span>
-            <span class="hero-typed" aria-label="Johncint F Bagonoc">
+            <span class="hero-typed" aria-label="Johncint Bagonoc">
               <span id="typed-name"></span><span class="caret" aria-hidden="true"></span>
             </span>
           </h1>
@@ -109,7 +121,7 @@
 
         <div class="hero-media">
           <div class="hero-image-frame">
-            <img src="assets/profile.jpg" alt="Portrait of Johncint F Bagonoc" loading="eager">
+            <img src="assets/Profile.jpg" alt="Portrait of Johncint Bagonoc" loading="eager">
             <span class="float-badge b1">Java</span>
             <span class="float-badge b2">C++</span>
             <span class="float-badge b3">JS</span>
@@ -140,7 +152,7 @@
 
         <article class="project-card featured" data-animate="fade-up" data-tech="java" style="--i: 0">
           <div class="project-thumb">
-            <img src="assets/project-one.png" alt="Screenshot of Project One" loading="lazy">
+            <img src="assets/project-one.png" alt="Screenshot of Project One" loading="lazy" class="lightbox-trigger">
             <span class="project-number">01</span>
             <span class="project-badge">Featured</span>
             <span class="project-status live">Live</span>
@@ -166,7 +178,7 @@
 
         <article class="project-card" data-animate="fade-up" data-tech="cpp" style="--i: 1">
           <div class="project-thumb">
-            <img src="assets/project-two.png" alt="Screenshot of Project Two" loading="lazy">
+            <img src="assets/project-two.png" alt="Screenshot of Project Two" loading="lazy" class="lightbox-trigger">
             <span class="project-number">02</span>
             <span class="project-status progress">In progress</span>
             <div class="project-overlay">
@@ -191,7 +203,7 @@
 
         <article class="project-card" data-animate="fade-up" data-tech="javascript" style="--i: 2">
           <div class="project-thumb">
-            <img src="assets/project-three.png" alt="Screenshot of Project Three" loading="lazy">
+            <img src="assets/project-three.png" alt="Screenshot of Project Three" loading="lazy" class="lightbox-trigger">
             <span class="project-number">03</span>
             <span class="project-status live">Live</span>
             <div class="project-overlay">
@@ -216,7 +228,7 @@
 
         <article class="project-card" data-animate="fade-up" data-tech="python" style="--i: 3">
           <div class="project-thumb">
-            <img src="assets/project-four.png" alt="Screenshot of Project Four" loading="lazy">
+            <img src="assets/project-four.png" alt="Screenshot of Project Four" loading="lazy" class="lightbox-trigger">
             <span class="project-number">04</span>
             <span class="project-status archived">Archived</span>
             <div class="project-overlay">
@@ -241,7 +253,7 @@
 
         <article class="project-card" data-animate="fade-up" data-tech="javascript" style="--i: 4">
           <div class="project-thumb">
-            <img src="assets/project-five.png" alt="Screenshot of Project Five" loading="lazy">
+            <img src="assets/project-five.png" alt="Screenshot of Project Five" loading="lazy" class="lightbox-trigger">
             <span class="project-number">05</span>
             <span class="project-status live">Live</span>
             <div class="project-overlay">
@@ -266,7 +278,7 @@
 
         <article class="project-card" data-animate="fade-up" data-tech="java" style="--i: 5">
           <div class="project-thumb">
-            <img src="assets/project-six.png" alt="Screenshot of Project Six" loading="lazy">
+            <img src="assets/project-six.png" alt="Screenshot of Project Six" loading="lazy" class="lightbox-trigger">
             <span class="project-number">06</span>
             <span class="project-status archived">Archived</span>
             <div class="project-overlay">
@@ -529,11 +541,11 @@
 
       <div class="contact-grid" data-animate="fade-up">
 
-        <form
-          class="contact-form"
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST"
-        >
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+          <input type="hidden" name="subject" value="New message from Portfolio">
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
           <div class="form-row">
             <label for="cf-name">Name</label>
             <input type="text" id="cf-name" name="name" placeholder="Your name" required>
@@ -627,10 +639,58 @@
     </div>
 
     <div class="footer-bottom">
-      <p>© <span id="year">2026</span> Johncint F Bagonoc. Built with HTML, CSS, and JavaScript.</p>
+      <p>© <span id="year">2026</span> Johncint Bagonoc. Built with HTML, CSS, and JavaScript.</p>
       <p class="footer-mono">// last updated <span id="last-updated">—</span></p>
     </div>
   </footer>
+
+  <a href="mailto:johncintfbagonoc@gmail.com" class="floating-email" aria-label="Email me">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+      <polyline points="22,6 12,13 2,6"></polyline>
+    </svg>
+    <span class="floating-email-tooltip">Message me!</span>
+  </a>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    <img src="" alt="Zoomed Image" id="lightbox-img">
+  </div>
+
+  <div class="cmd-palette" id="cmd-palette">
+    <div class="cmd-backdrop" id="cmd-backdrop"></div>
+    <div class="cmd-modal">
+      <div class="cmd-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="cmd-input" placeholder="Type a command or search...">
+        <span class="cmd-esc">ESC</span>
+      </div>
+      <ul class="cmd-list" id="cmd-list">
+        <li data-target="#projects">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+          Projects
+        </li>
+        <li data-target="#certificates">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+          Certificates
+        </li>
+        <li data-target="#about">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          About
+        </li>
+        <li data-target="#contact">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          Contact
+        </li>
+        <li data-action="theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          Toggle Theme
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
