@@ -7,8 +7,6 @@ const backToTop = document.querySelector(".back-to-top");
 const scrollBar = document.querySelector(".scroll-progress");
 const hero = document.querySelector(".hero");
 const heroFrame = document.querySelector(".hero-image-frame");
-const clockTime = document.getElementById("clock-time");
-const clockDate = document.getElementById("clock-date");
 const typedName = document.getElementById("typed-name");
 const navCopy = document.querySelector(".nav-copy");
 const navIndicator = document.querySelector(".nav-indicator");
@@ -21,10 +19,93 @@ const aboutPanels = document.querySelectorAll(".about-panel");
 const contactCopy = document.querySelector(".contact-copy");
 const yearEl = document.getElementById("year");
 const lastUpdatedEl = document.getElementById("last-updated");
+const themeToggle = document.getElementById("theme-toggle");
 
-const NAME = "Johncint F Bagonoc";
+// Custom Cursor Elements
+const cursorDot = document.getElementById("cursor-dot");
+const cursorRing = document.getElementById("cursor-ring");
+
+// Lightbox Elements
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxClose = document.getElementById("lightbox-close");
+const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+
+// Command Palette Elements
+const cmdTrigger = document.getElementById("cmd-trigger");
+const cmdPalette = document.getElementById("cmd-palette");
+const cmdBackdrop = document.getElementById("cmd-backdrop");
+const cmdInput = document.getElementById("cmd-input");
+const cmdList = document.getElementById("cmd-list");
+const cmdItems = document.querySelectorAll(".cmd-list li");
+
+const NAME = "Johncint Bagonoc";
 const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// ---------------------------------------------------
+// 0. CUSTOM MOUSE CURSOR
+// ---------------------------------------------------
+if (cursorDot && cursorRing && !prefersReduced && window.innerWidth > 860) {
+  let mouseX = 0;
+  let mouseY = 0;
+  let ringX = 0;
+  let ringY = 0;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+  });
+
+  const animateRing = () => {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(animateRing);
+  };
+  animateRing();
+
+  const clickables = document.querySelectorAll("a, button, input, textarea, .theme-toggle, .project-card");
+  clickables.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      cursorRing.classList.add("hover-active");
+      cursorDot.classList.add("hover-active");
+    });
+    el.addEventListener("mouseleave", () => {
+      cursorRing.classList.remove("hover-active");
+      cursorDot.classList.remove("hover-active");
+    });
+  });
+
+  document.addEventListener("mouseleave", () => {
+    document.body.classList.add("cursor-hidden");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    document.body.classList.remove("cursor-hidden");
+  });
+}
+
+// ---------------------------------------------------
+// 1. THEME TOGGLE (Light / Dark Mode)
+// ---------------------------------------------------
+const htmlEl = document.documentElement;
+const savedTheme = localStorage.getItem("theme") || "dark";
+htmlEl.setAttribute("data-theme", savedTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = htmlEl.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    
+    htmlEl.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+}
+
+// ---------------------------------------------------
+// 2. INTRO ANIMATION & TYPING
+// ---------------------------------------------------
 let typedStarted = false;
 
 function startTyping() {
@@ -81,6 +162,9 @@ if (intro) {
   startTyping();
 }
 
+// ---------------------------------------------------
+// 3. SCROLL PROGRESS & NAVBAR
+// ---------------------------------------------------
 window.addEventListener("scroll", () => {
   navbar.classList.toggle("scrolled", window.scrollY > 10);
 
@@ -92,6 +176,9 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// ---------------------------------------------------
+// 4. MOBILE MENU
+// ---------------------------------------------------
 if (navToggle && navMenu) {
   const closeMenu = () => {
     navMenu.classList.remove("open");
@@ -130,6 +217,9 @@ if (navToggle && navMenu) {
   });
 }
 
+// ---------------------------------------------------
+// 5. BACK TO TOP
+// ---------------------------------------------------
 if (backToTop) {
   backToTop.addEventListener("click", (e) => {
     e.preventDefault();
@@ -137,6 +227,9 @@ if (backToTop) {
   });
 }
 
+// ---------------------------------------------------
+// 6. HERO 3D TILT & GLOW
+// ---------------------------------------------------
 if (hero) {
   hero.addEventListener("mousemove", (e) => {
     const rect = hero.getBoundingClientRect();
@@ -158,6 +251,9 @@ if (heroFrame) {
   });
 }
 
+// ---------------------------------------------------
+// 7. SCROLL ANIMATIONS
+// ---------------------------------------------------
 const animateEls = document.querySelectorAll("[data-animate]");
 
 if (animateEls.length) {
@@ -181,6 +277,9 @@ if (animateEls.length) {
   }
 }
 
+// ---------------------------------------------------
+// 8. ACTIVE NAV INDICATOR
+// ---------------------------------------------------
 function moveIndicator() {
   if (!navIndicator) return;
   const active = document.querySelector(".nav-links a.active");
@@ -225,32 +324,9 @@ if (sections.length && navAnchors.length) {
 window.addEventListener("resize", moveIndicator);
 window.addEventListener("load", moveIndicator);
 
-if (clockTime && clockDate) {
-  const updateClock = () => {
-    const now = new Date();
-
-    const time = now.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-    });
-
-    const date = now.toLocaleDateString("en-US", {
-      weekday: "short",
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-
-    clockTime.textContent = time;
-    clockDate.textContent = date;
-  };
-
-  updateClock();
-  setInterval(updateClock, 1000);
-}
-
+// ---------------------------------------------------
+// 9. TOAST & COPY EMAIL
+// ---------------------------------------------------
 let toastTimer;
 
 function showToast(message) {
@@ -282,46 +358,6 @@ if (navCopy) {
   });
 }
 
-if (filterBtns.length && projectCards.length) {
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const filter = btn.dataset.filter;
-      let visible = 0;
-
-      projectCards.forEach((card) => {
-        const show = filter === "all" || card.dataset.tech === filter;
-        card.classList.toggle("hidden", !show);
-        if (show) visible++;
-      });
-
-      if (projectEmpty) projectEmpty.hidden = visible > 0;
-    });
-  });
-}
-
-if (aboutTabs.length && aboutPanels.length) {
-  aboutTabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      aboutTabs.forEach((t) => {
-        t.classList.remove("active");
-        t.setAttribute("aria-selected", "false");
-      });
-      aboutPanels.forEach((p) => p.classList.remove("active"));
-
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-
-      const target = document.querySelector(
-        `.about-panel[data-panel="${tab.dataset.tab}"]`
-      );
-      if (target) target.classList.add("active");
-    });
-  });
-}
-
 if (contactCopy) {
   contactCopy.addEventListener("click", async () => {
     const email = contactCopy.dataset.email;
@@ -343,6 +379,55 @@ if (contactCopy) {
   });
 }
 
+// ---------------------------------------------------
+// 10. PROJECT FILTERS
+// ---------------------------------------------------
+if (filterBtns.length && projectCards.length) {
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+      let visible = 0;
+
+      projectCards.forEach((card) => {
+        const show = filter === "all" || card.dataset.tech === filter;
+        card.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+
+      if (projectEmpty) projectEmpty.hidden = visible > 0;
+    });
+  });
+}
+
+// ---------------------------------------------------
+// 11. ABOUT TABS
+// ---------------------------------------------------
+if (aboutTabs.length && aboutPanels.length) {
+  aboutTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      aboutTabs.forEach((t) => {
+        t.classList.remove("active");
+        t.setAttribute("aria-selected", "false");
+      });
+      aboutPanels.forEach((p) => p.classList.remove("active"));
+
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+
+      const target = document.querySelector(
+        `.about-panel[data-panel="${tab.dataset.tab}"]`
+      );
+      if (target) target.classList.add("active");
+    });
+  });
+}
+
+// ---------------------------------------------------
+// 12. FOOTER YEAR & LAST UPDATED
+// ---------------------------------------------------
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
@@ -354,4 +439,137 @@ if (lastUpdatedEl) {
       { month: "short", day: "numeric", year: "numeric" }
     );
   }
+}
+
+// ---------------------------------------------------
+// 13. IMAGE LIGHTBOX
+// ---------------------------------------------------
+if (lightbox && lightboxImg && lightboxTriggers.length) {
+  lightboxTriggers.forEach((img) => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+    setTimeout(() => { lightboxImg.src = ""; }, 300);
+  };
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("active")) {
+      closeLightbox();
+    }
+  });
+}
+
+// ---------------------------------------------------
+// 14. COMMAND PALETTE (⌘K / Ctrl+K)
+// ---------------------------------------------------
+if (cmdTrigger && cmdPalette && cmdInput && cmdList) {
+  const openCmd = () => {
+    cmdPalette.classList.add("active");
+    cmdInput.value = "";
+    cmdItems.forEach((item) => (item.style.display = "flex"));
+    setTimeout(() => cmdInput.focus(), 100);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeCmd = () => {
+    cmdPalette.classList.remove("active");
+    document.body.style.overflow = "";
+  };
+
+  cmdTrigger.addEventListener("click", openCmd);
+  cmdBackdrop.addEventListener("click", closeCmd);
+
+  document.addEventListener("keydown", (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      e.preventDefault();
+      if (cmdPalette.classList.contains("active")) {
+        closeCmd();
+      } else {
+        openCmd();
+      }
+    }
+    if (e.key === "Escape" && cmdPalette.classList.contains("active")) {
+      closeCmd();
+    }
+  });
+
+  cmdInput.addEventListener("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    cmdItems.forEach((item) => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(query) ? "flex" : "none";
+    });
+  });
+
+  cmdItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      const target = item.dataset.target;
+      const action = item.dataset.action;
+
+      if (target) {
+        const el = document.querySelector(target);
+        if (el) {
+          closeCmd();
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      } else if (action === "theme") {
+        themeToggle.click();
+        closeCmd();
+      }
+    });
+  });
+}
+
+// ---------------------------------------------------
+// 15. CONTACT FORM SUBMISSION (Web3Forms)
+// ---------------------------------------------------
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector(".contact-submit");
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    const formData = new FormData(contactForm);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        showToast("Message sent successfully!");
+        contactForm.reset();
+      } else {
+        showToast("Oops! Something went wrong. Try again.");
+      }
+    } catch (error) {
+      showToast("Couldn't send message. Check your connection.");
+    } finally {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
 }
