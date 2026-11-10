@@ -573,3 +573,62 @@ if (contactForm) {
     }
   });
 }
+
+// ---------------------------------------------------
+// 16. RESUME DOWNLOAD ANIMATION (Progress Bar Style)
+// ---------------------------------------------------
+const resumeBtn = document.getElementById("resume-btn");
+
+if (resumeBtn) {
+  const resumeText = resumeBtn.querySelector(".resume-text");
+  const progressBar = resumeBtn.querySelector(".resume-progress");
+  
+  resumeBtn.addEventListener("click", (e) => {
+    // If the button is already downloading, do nothing
+    if (resumeBtn.classList.contains("downloading")) return;
+    
+    e.preventDefault(); 
+    
+    try {
+      // 1. Change button state
+      resumeBtn.classList.add("downloading");
+      if (resumeText) resumeText.textContent = "Downloading...";
+      if (progressBar) progressBar.style.width = "0%";
+      
+      let width = 0;
+      
+      // 2. Animate the progress bar filling up
+      const interval = setInterval(() => {
+        width += 10;
+        if (progressBar) progressBar.style.width = width + "%";
+        
+        // 3. When it reaches 100%, trigger the download
+        if (width >= 100) {
+          clearInterval(interval);
+          
+          // Trigger download
+          const link = document.createElement("a");
+          link.href = resumeBtn.getAttribute("href");
+          link.target = "_blank";
+          link.click();
+          
+          // 4. Show "Success!" briefly, then reset
+          if (resumeText) resumeText.textContent = "Success!";
+          if (progressBar) progressBar.style.background = "#4ade80"; // Green
+          
+          setTimeout(() => {
+            resumeBtn.classList.remove("downloading");
+            if (resumeText) resumeText.textContent = "Resume";
+            if (progressBar) {
+              progressBar.style.width = "0%";
+              progressBar.style.background = "rgba(255, 255, 255, 0.25)";
+            }
+          }, 1500);
+        }
+      }, 30);
+    } catch (error) {
+      // If anything fails, just open the link normally
+      window.open(resumeBtn.getAttribute("href"), "_blank");
+    }
+  });
+}
