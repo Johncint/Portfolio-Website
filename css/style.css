@@ -1268,6 +1268,44 @@ body.intro-lock { overflow: hidden; }
 }
 
 /* =========================================
+   RESUME BUTTON ANIMATION
+   ========================================= */
+#resume-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.resume-text {
+  position: relative;
+  z-index: 2;
+}
+
+.resume-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 1;
+  transition: width 0.1s linear;
+}
+
+#resume-btn.downloading {
+  pointer-events: none;
+  box-shadow: 0 0 15px var(--accent);
+}
+
+#resume-btn.downloading .resume-text {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================
    RESPONSIVE
    ========================================= */
 @media (max-width: 980px) {
